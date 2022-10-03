@@ -19,10 +19,7 @@ public class Teacher extends User{
 
     public Teacher(int user_id, String user_firstname, String user_lastname, String user_email, String user_phone, Subject subject) {
         super(user_id, user_firstname, user_lastname, user_email, user_phone);
-        this.subject = subject;
     }
-
-
 
     public Subject getSubject() {
         return subject;
@@ -35,7 +32,8 @@ public class Teacher extends User{
     @Override
     public String toString() {
         return "Teacher{" +
-                "subject=" + subject +
+                "user=" + user +
+                ", subject=" + subject +
                 '}';
     }
 }
