@@ -6,6 +6,7 @@ import java.util.Date;
 public class Student  extends User{
 
     private Date student_date;
+    private ArrayList<Subject> subjects;
     private ArrayList<Student> students;
 
     public Student(){}
@@ -27,6 +28,14 @@ public class Student  extends User{
 
     public void setStudent_date(Date student_date) {
         this.student_date = student_date;
+    }
+
+    public ArrayList<Subject> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(ArrayList<Subject> subjects) {
+        this.subjects = subjects;
     }
 
     public ArrayList<Student> getStudents() {

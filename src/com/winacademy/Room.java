@@ -8,7 +8,7 @@ public class Room {
     private String room_name;
     private int places;
     public Department department;
-    public ArrayList<Room> rooms;
+    //public ArrayList<Room> rooms;
 
     public Room(){}
 
@@ -51,11 +51,21 @@ public class Room {
         this.department = department;
     }
 
-    public ArrayList<Room> getRooms() {
-        return rooms;
-    }
+    //public ArrayList<Room> getRooms() {
+       // return rooms;
+    //}
 
-    public void setRooms(ArrayList<Room> rooms) {
-        this.rooms = rooms;
+    //public void setRooms(ArrayList<Room> rooms) {
+        //this.rooms = rooms;
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "room_id=" + room_id +
+                ", room_name='" + room_name + '\'' +
+                ", places=" + places +
+                ", department=" + department +
+                '}';
     }
+    //}
 }
