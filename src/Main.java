@@ -14,8 +14,6 @@ public class Main {
     static ArrayList<Teacher> teachers = new ArrayList<Teacher>();
     static ArrayList<Student> students = new ArrayList<Student>();
 
-
-
     public static void main(String[] args) {
 
         do {
@@ -117,10 +115,26 @@ public class Main {
     }
 
     public static void getColleges(){ for (College college1 : colleges){ System.out.println(college1.toString());} }
+
     public static void updateCollege(){
-        System.out.println("Update College Coming Soon !!!");
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter College Id : ");
+        int collegeId = scanner.nextInt();
+        System.out.print("Enter College Name : ");
+        String collegeName = scanner.next();
+        colleges.set(collegeId - 1, new College(collegeId,collegeName));
     }
-    public static void deleteCollege(){ System.out.println("delete College Coming Soon !!!"); }
+
+    public static void deleteCollege(){
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter College Id : ");
+        int collegeId = scanner.nextInt();
+        colleges.remove(collegeId - 1);
+
+    }
 
     // Departments Management
 
@@ -190,12 +204,7 @@ public class Main {
         return null;
     }
 
-    public static void getDepartments(){
-        for (Department department1 : departments){
-            System.out.println(department1.toString());
-        }
-    }
-
+    public static void getDepartments(){ for (Department department1 : departments){ System.out.println(department1.toString());} }
     public static void updateDepartment(){ System.out.println("Update Department Coming Soon !!!"); }
     public static void deleteDepartment(){ System.out.println("delete Department Coming Soon !!!"); }
 
@@ -268,11 +277,7 @@ public class Main {
         return null;
     }
 
-    public static void getRooms(){
-        for (Room room1 : rooms){
-            System.out.println(room1.toString());
-        }
-    }
+    public static void getRooms(){ for (Room room1 : rooms){ System.out.println(room1.toString()); } }
     public static void updateRoom(){ System.out.println("Update Department Coming Soon !!!"); }
     public static void deleteRoom(){ System.out.println("delete Department Coming Soon !!!"); }
 
@@ -344,11 +349,7 @@ public class Main {
         return null;
     }
 
-    public static void getSubjects(){
-        for (Subject subject1 : subjects){
-            System.out.println(subject1.toString());
-        }
-    }
+    public static void getSubjects(){ for (Subject subject1 : subjects){ System.out.println(subject1.toString()); } }
     public static void updateSubject(){ System.out.println("Update Department Coming Soon !!!"); }
     public static void deleteSubject(){ System.out.println("delete Department Coming Soon !!!"); }
 
@@ -405,11 +406,7 @@ public class Main {
         teachers.add(teacher);
     }
 
-    public static void getTeachers(){
-        for (Teacher teacher1 : teachers){
-            System.out.println(teacher1.toString());
-        }
-    }
+    public static void getTeachers(){ for (Teacher teacher1 : teachers){ System.out.println(teacher1.toString()); } }
     public static void updateTeacher(){ System.out.println("Update Department Coming Soon !!!"); }
     public static void deleteTeacher(){ System.out.println("delete Department Coming Soon !!!"); }
 
@@ -467,13 +464,8 @@ public class Main {
 
     }
 
-    public static void getStudents(){
-        for (Student student1 : students){
-            System.out.println(student1.toString());
-        }
-    }
+    public static void getStudents(){ for (Student student1 : students){ System.out.println(student1.toString()); } }
     public static void updateStudent(){ System.out.println("Update Department Coming Soon !!!"); }
     public static void deleteStudent(){ System.out.println("delete Department Coming Soon !!!"); }
-
 
 }
