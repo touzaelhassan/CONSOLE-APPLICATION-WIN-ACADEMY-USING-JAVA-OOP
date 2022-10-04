@@ -1,13 +1,8 @@
-package com.winacademy;
-
-import java.util.ArrayList;
-
 public class Subject {
 
     private int subject_id;
     private String subject_name;
     private Room room;
-    //private ArrayList<Subject> subjects;
 
     public Subject(){}
 
@@ -41,13 +36,6 @@ public class Subject {
         this.room = room;
     }
 
-    //public ArrayList<Subject> getSubjects() {
-       // return subjects;
-    //}
-
-    //public void setSubjects(ArrayList<Subject> subjects) {
-       // this.subjects = subjects;
-
     @Override
     public String toString() {
         return "Subject{" +
@@ -56,5 +44,4 @@ public class Subject {
                 ", room=" + room +
                 '}';
     }
-    //}
 }
