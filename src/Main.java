@@ -10,7 +10,6 @@ public class Main {
     static ArrayList<Department> departments = new ArrayList<Department>();
     static ArrayList<Room> rooms = new ArrayList<Room>();
     static ArrayList<Subject> subjects = new ArrayList<Subject>();
-
     static ArrayList<Teacher> teachers = new ArrayList<Teacher>();
     static ArrayList<Student> students = new ArrayList<Student>();
 
@@ -18,8 +17,9 @@ public class Main {
 
         do {
 
-            System.out.println("                              ");
-            System.out.println("========== WIN ACADEMY =======");
+            System.out.println("                            ");
+            System.out.println("========== WIN ACADEMY =====");
+            System.out.println("                            ");
             System.out.println("[1] - COLLEGES MANAGEMENT");
             System.out.println("[2] - DEPARTMENTS MANAGEMENT");
             System.out.println("[3] - ROOMS MANAGEMENT");
@@ -106,35 +106,32 @@ public class Main {
 
         while (r.hasNext()){
             College college = r.next();
-
-            if(college.getCollege_id() == collegeId){
-                return college;
-            }
+            if(college.getCollege_id() == collegeId){ return college; }
         }
         return null;
     }
 
-    public static void getColleges(){ for (College college1 : colleges){ System.out.println(college1.toString());} }
-
     public static void updateCollege(){
 
         Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter College Id : ");
-        int collegeId = scanner.nextInt();
+        System.out.print("Enter College Index : ");
+        int collegeIndex = scanner.nextInt();
         System.out.print("Enter College Name : ");
         String collegeName = scanner.next();
-        colleges.set(collegeId - 1, new College(collegeId,collegeName));
+        colleges.set(collegeIndex, new College(collegeIndex + 1,collegeName));
+
     }
 
     public static void deleteCollege(){
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter College Id : ");
-        int collegeId = scanner.nextInt();
-        colleges.remove(collegeId - 1);
+        System.out.print("Enter College Index : ");
+        int collegeIndex = scanner.nextInt();
+        colleges.remove(collegeIndex);
 
     }
+
+    public static void getColleges(){ for (College college1 : colleges){ System.out.println(college1.toString());} }
 
     // Departments Management
 
@@ -170,24 +167,19 @@ public class Main {
     public static void createDepartment(){
 
         Scanner scanner = new Scanner(System.in);
-
         System.out.print("Enter Department Id : ");
         int departmentId = scanner.nextInt();
-
         System.out.print("Enter Department Name : ");
         String departmentName = scanner.next();
-
         System.out.print("Enter College Id : ");
         int collegeId = scanner.nextInt();
         College college = getCollegeById(collegeId);
-
         Department department = new Department();
-
         department.setDepartment_id(departmentId);
         department.setDepartment_name(departmentName);
         department.setCollege(college);
-
         departments.add(department);
+
     }
 
     public static Department getDepartmentById(int departmentId){
@@ -196,17 +188,32 @@ public class Main {
 
         while (r.hasNext()){
             Department department = r.next();
-
-            if(department.getDepartment_id() == departmentId){
-                return department;
-            }
+            if(department.getDepartment_id() == departmentId){ return department; }
         }
         return null;
     }
 
+    public static void updateDepartment(){
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter Department Index : ");
+        int departmentIndex = scanner.nextInt();
+        System.out.print("Enter Department Name : ");
+        String departmentName = scanner.next();
+        departments.set(departmentIndex, new Department(departmentIndex + 1, departmentName, new College(1,"mmm")));
+
+    }
+
+    public static void deleteDepartment(){
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter Department Index : ");
+        int departmentIndex = scanner.nextInt();
+        departments.remove(departmentIndex);
+
+    }
+
     public static void getDepartments(){ for (Department department1 : departments){ System.out.println(department1.toString());} }
-    public static void updateDepartment(){ System.out.println("Update Department Coming Soon !!!"); }
-    public static void deleteDepartment(){ System.out.println("delete Department Coming Soon !!!"); }
 
     // Rooms Management
 
@@ -242,25 +249,19 @@ public class Main {
     public static void createRoom(){
 
         Scanner scanner = new Scanner(System.in);
-
         System.out.print("Enter Room Id : ");
         int roomId = scanner.nextInt();
-
         System.out.print("Enter Room Name : ");
         String roomName = scanner.next();
-
         System.out.print("Enter Department Id : ");
         int departmentId = scanner.nextInt();
-
         Department department = getDepartmentById(departmentId);
-
         Room room = new Room();
-
         room.setRoom_id(roomId);
         room.setRoom_name(roomName);
         room.setDepartment(department);
-
         rooms.add(room);
+
     }
 
     public static Room getRoomById(int roomId){
@@ -269,10 +270,7 @@ public class Main {
 
         while (r.hasNext()){
             Room room = r.next();
-
-            if(room.getRoom_id() == roomId){
-                return room;
-            }
+            if(room.getRoom_id() == roomId){ return room; }
         }
         return null;
     }
@@ -315,24 +313,19 @@ public class Main {
     public static void createSubject(){
 
         Scanner scanner = new Scanner(System.in);
-
         System.out.print("Enter Subject Id : ");
         int subjectId = scanner.nextInt();
-
         System.out.print("Enter Subject Name : ");
         String subjectName = scanner.next();
-
         System.out.print("Enter Room Id : ");
         int roomId = scanner.nextInt();
         Room room = getRoomById(roomId);
-
         Subject subject = new Subject();
-
         subject.setSubject_id(subjectId);
         subject.setSubject_name(subjectName);
         subject.setRoom(room);
-
         subjects.add(subject);
+
     }
 
     public static Subject getSubjectById(int subjectId){
@@ -341,11 +334,9 @@ public class Main {
 
         while (r.hasNext()){
             Subject subject = r.next();
-
-            if(subject.getSubject_id() == subjectId){
-                return subject;
-            }
+            if(subject.getSubject_id() == subjectId){ return subject; }
         }
+
         return null;
     }
 
@@ -387,23 +378,18 @@ public class Main {
     public static void createTeacher(){
 
         Scanner scanner = new Scanner(System.in);
-
         System.out.print("Enter Teacher Id : ");
         int userId = scanner.nextInt();
-
         System.out.print("Enter Teacher Name : ");
         String userName = scanner.next();
-
         System.out.print("Enter Teacher Email : ");
         String userEmail = scanner.next();
-
         System.out.print("Enter Subject Id : ");
         int subjectIdId = scanner.nextInt();
         Subject subject = getSubjectById(subjectIdId);
-
         Teacher teacher = new Teacher(userId,userName,userEmail,subject);
-
         teachers.add(teacher);
+
     }
 
     public static void getTeachers(){ for (Teacher teacher1 : teachers){ System.out.println(teacher1.toString()); } }
@@ -444,22 +430,16 @@ public class Main {
     public static void createStudent(){
 
         Scanner scanner = new Scanner(System.in);
-
         System.out.print("Enter Student Id : ");
         int userId = scanner.nextInt();
-
         System.out.print("Enter Student Name : ");
         String userName = scanner.next();
-
         System.out.print("Enter Student Email : ");
         String userEmail = scanner.next();
-
         System.out.print("Enter Subject Id : ");
         int subjectIdId = scanner.nextInt();
         Subject subject = getSubjectById(subjectIdId);
-
         Student student = new Student(userId,userName,userEmail,subject);
-
         students.add(student);
 
     }
