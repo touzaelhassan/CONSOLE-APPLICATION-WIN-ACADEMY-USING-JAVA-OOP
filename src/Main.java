@@ -17,21 +17,22 @@ public class Main {
 
         do {
 
-            System.out.println("                                         ");
-            System.out.println("                                         ");
-            System.out.println("#=========*  | WIN ACADEMY |  *=========#");
-            System.out.println("|                                       |");
-            System.out.println("|  [1] - COLLEGES MANAGEMENT            |");
-            System.out.println("|  [2] - DEPARTMENTS MANAGEMENT         |");
-            System.out.println("|  [3] - ROOMS MANAGEMENT               |");
-            System.out.println("|  [4] - SUBJECTS MANAGEMENT            |");
-            System.out.println("|  [5] - TEACHERS MANAGEMENT            |");
-            System.out.println("|  [6] - STUDENTS MANAGEMENT            |");
-            System.out.println("|  [0] - EXIT THE APPLICATION           |");
-            System.out.println("|                                       |");
-            System.out.println("#=======================================#");
-            System.out.println("                                         ");
-            System.out.println("                                         ");
+            ClearConsole();
+            System.out.println("                                                 ");
+            System.out.println("                                                 ");
+            System.out.println("    #=========*  | WIN ACADEMY |  *=========#    ");
+            System.out.println("    |                                       |    ");
+            System.out.println("    |  [1] - COLLEGES MANAGEMENT            |    ");
+            System.out.println("    |  [2] - DEPARTMENTS MANAGEMENT         |    ");
+            System.out.println("    |  [3] - ROOMS MANAGEMENT               |    ");
+            System.out.println("    |  [4] - SUBJECTS MANAGEMENT            |    ");
+            System.out.println("    |  [5] - TEACHERS MANAGEMENT            |    ");
+            System.out.println("    |  [6] - STUDENTS MANAGEMENT            |    ");
+            System.out.println("    |  [0] - EXIT THE APPLICATION           |    ");
+            System.out.println("    |                                       |    ");
+            System.out.println("    #=======================================#    ");
+            System.out.println("                                                 ");
+            System.out.println("                                                 ");
             System.out.print("Please enter your choice : ");
             Scanner scanner = new Scanner(System.in);
             choice = scanner.nextInt();
@@ -65,15 +66,35 @@ public class Main {
 
     public static void closeApplication(){
 
-        System.out.println("                                         ");
-        System.out.println("*=======================================*");
-        System.out.println("|                                       |");
-        System.out.println("|         *------------------*          |");
-        System.out.println("|         | SEE YOU SOON !!! |          |");
-        System.out.println("|         *------------------*          |");
-        System.out.println("|                                       |");
-        System.out.println("*=======================================*");
+        ClearConsole();
+        System.out.println("                                               ");
+        System.out.println("   *=======================================*   ");
+        System.out.println("   |                                       |   ");
+        System.out.println("   |         *------------------*          |   ");
+        System.out.println("   |         | SEE YOU SOON !!! |          |   ");
+        System.out.println("   |         *------------------*          |   ");
+        System.out.println("   |                                       |   ");
+        System.out.println("   *=======================================*   ");
+        System.out.println("                                               ");
 
+    }
+
+    public static void ClearConsole(){
+        try{
+            String operatingSystem = System.getProperty("os.name");
+
+            if(operatingSystem.contains("Windows")){
+                ProcessBuilder pb = new ProcessBuilder("cmd", "/c", "cls");
+                Process startProcess = pb.inheritIO().start();
+                startProcess.waitFor();
+            } else {
+                ProcessBuilder pb = new ProcessBuilder("clear");
+                Process startProcess = pb.inheritIO().start();
+                startProcess.waitFor();
+            }
+        }catch(Exception e){
+            System.out.println(e);
+        }
     }
 
     // Colleges Management
@@ -81,22 +102,23 @@ public class Main {
     public static void collegesManagement(){
 
         int collegeChoice;
+        ClearConsole();
 
         do {
 
-            System.out.println("                                         ");
-            System.out.println("                                         ");
-            System.out.println("*--------- COLLEGES MANAGEMENTS --------*");
-            System.out.println("|                                       |");
-            System.out.println("|  [1] - CREATE COLLEGE                 |");
-            System.out.println("|  [2] - READ COLLEGES                  |");
-            System.out.println("|  [3] - UPDATE COLLEGE                 |");
-            System.out.println("|  [4] - DELETE COLLEGE                 |");
-            System.out.println("|  [0] - GO BACK TO THE MAIN MENU       |");
-            System.out.println("|                                       |");
-            System.out.println("*---------------------------------------*");
-            System.out.println("                                         ");
-            System.out.println("                                         ");
+            System.out.println("                                               ");
+            System.out.println("                                               ");
+            System.out.println("   *--------- COLLEGES MANAGEMENTS --------*   ");
+            System.out.println("   |                                       |   ");
+            System.out.println("   |  [1] - CREATE COLLEGE                 |   ");
+            System.out.println("   |  [2] - READ COLLEGES                  |   ");
+            System.out.println("   |  [3] - UPDATE COLLEGE                 |   ");
+            System.out.println("   |  [4] - DELETE COLLEGE                 |   ");
+            System.out.println("   |  [0] - GO BACK TO THE MAIN MENU       |   ");
+            System.out.println("   |                                       |   ");
+            System.out.println("   *---------------------------------------*   ");
+            System.out.println("                                               ");
+            System.out.println("                                               ");
             System.out.print("Please enter your choice : ");
             Scanner scanner = new Scanner(System.in);
             collegeChoice = scanner.nextInt();
@@ -120,12 +142,16 @@ public class Main {
 
     public static void createCollege(){
 
+        ClearConsole();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("                  ");
-        System.out.println("                  ");
-        System.out.print("Enter College Id :  ");
+        System.out.println("                            ");
+        System.out.println("Enter college information  :");
+        System.out.println("----------------------------");
+        System.out.println("                            ");
+        System.out.println("                            ");
+        System.out.print("Enter College Id : ");
         int collegeId = scanner.nextInt();
-        System.out.print("Enter College Name :");
+        System.out.print("Enter College Name : ");
         String collegeName = scanner.next();
         College college = new College();
         college.setCollege_id(collegeId);
@@ -148,12 +174,16 @@ public class Main {
 
     public static void updateCollege(){
 
+        ClearConsole();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("                    ");
-        System.out.println("                    ");
+        System.out.println("                            ");
+        System.out.println("Enter college information : ");
+        System.out.println("--------------------------- ");
+        System.out.println("                            ");
+        System.out.println("                            ");
         System.out.print("Enter College Index : ");
         int collegeIndex = scanner.nextInt();
-        System.out.print("Enter College Name :  ");
+        System.out.print("Enter College Name : ");
         String collegeName = scanner.next();
         colleges.set(collegeIndex, new College(collegeIndex + 1,collegeName));
 
@@ -161,6 +191,7 @@ public class Main {
 
     public static void deleteCollege(){
 
+        ClearConsole();
         Scanner scanner = new Scanner(System.in);
         System.out.println("                    ");
         System.out.println("                    ");
@@ -172,6 +203,7 @@ public class Main {
 
     public static void getColleges(){
 
+        ClearConsole();
         System.out.println("               ");
         System.out.println("               ");
         System.out.println("Colleges List :");
@@ -185,23 +217,24 @@ public class Main {
 
     public static void departmentsManagement(){
 
+        ClearConsole();
         int departmentChoice;
 
         do {
 
-            System.out.println("               ");
-            System.out.println("               ");
-            System.out.println("#------- DEPARTMENTS MANAGEMENTS -------#");
-            System.out.println("|                                       |");
-            System.out.println("|  [1] - CREATE DEPARTMENT              |");
-            System.out.println("|  [2] - READ DEPARTMENT                |");
-            System.out.println("|  [3] - UPDATE DEPARTMENT              |");
-            System.out.println("|  [4] - DELETE DEPARTMENT              |");
-            System.out.println("|  [0] - GO BACK TO THE MAIN MENU       |");
-            System.out.println("|                                       |");
-            System.out.println("#---------------------------------------#");
-            System.out.println("                                        ");
-            System.out.println("                                        ");
+            System.out.println("                                               ");
+            System.out.println("                                               ");
+            System.out.println("   #------- DEPARTMENTS MANAGEMENTS -------#   ");
+            System.out.println("   |                                       |   ");
+            System.out.println("   |  [1] - CREATE DEPARTMENT              |   ");
+            System.out.println("   |  [2] - READ DEPARTMENT                |   ");
+            System.out.println("   |  [3] - UPDATE DEPARTMENT              |   ");
+            System.out.println("   |  [4] - DELETE DEPARTMENT              |   ");
+            System.out.println("   |  [0] - GO BACK TO THE MAIN MENU       |   ");
+            System.out.println("   |                                       |   ");
+            System.out.println("   #---------------------------------------#   ");
+            System.out.println("                                               ");
+            System.out.println("                                               ");
             System.out.print("Please enter your choice : ");
             Scanner scanner = new Scanner(System.in);
             departmentChoice = scanner.nextInt();
@@ -227,14 +260,18 @@ public class Main {
 
     public static void createDepartment(){
 
+        ClearConsole();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("                      ");
-        System.out.println("                      ");
-        System.out.print("Enter Department Id :   ");
+        System.out.println("                               ");
+        System.out.println("Enter department information  :");
+        System.out.println("-------------------------------");
+        System.out.println("                               ");
+        System.out.println("                               ");
+        System.out.print("Enter Department Id : ");
         int departmentId = scanner.nextInt();
         System.out.print("Enter Department Name : ");
         String departmentName = scanner.next();
-        System.out.print("Enter College Id :      ");
+        System.out.print("Enter College Id : ");
         int collegeId = scanner.nextInt();
         College college = getCollegeById(collegeId);
         Department department = new Department();
@@ -259,10 +296,16 @@ public class Main {
 
     public static void updateDepartment(){
 
+        ClearConsole();
         Scanner scanner = new Scanner(System.in);
+        System.out.println("                                ");
+        System.out.println("Enter department information  : ");
+        System.out.println("------------------------------- ");
+        System.out.println("                                ");
+        System.out.println("                                ");
         System.out.print("Enter Department Index : ");
         int departmentIndex = scanner.nextInt();
-        System.out.print("Enter Department Name :  ");
+        System.out.print("Enter Department Name : ");
         String departmentName = scanner.next();
         departments.set(departmentIndex, new Department(departmentIndex + 1, departmentName, new College(1,"mmm")));
 
@@ -270,6 +313,7 @@ public class Main {
 
     public static void deleteDepartment(){
 
+        ClearConsole();
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter Department Index : ");
         int departmentIndex = scanner.nextInt();
@@ -277,45 +321,70 @@ public class Main {
 
     }
 
-    public static void getDepartments(){ for (Department department1 : departments){ System.out.println(department1.toString());} }
+    public static void getDepartments(){
+        ClearConsole();
+        System.out.println("                 ");
+        System.out.println("                 ");
+        System.out.println("Department List :");
+        System.out.println("-----------------");
+        System.out.println("                 ");
+        for (Department department1 : departments){ System.out.println(department1.toString());}
+    }
 
     // Rooms Management
 
     public static void roomsManagement(){
 
+        ClearConsole();
         int roomChoice;
-        System.out.println("---------- ROOMS MANAGEMENTS ------");
-        System.out.println("[1] - CREATE ROOM                  ");
-        System.out.println("[2] - READ ROOMS                   ");
-        System.out.println("[3] - UPDATE ROOM                  ");
-        System.out.println("[4] - DELETE ROOM                  ");
-        System.out.println("                                   ");
-        System.out.print("Please enter your choice : ");
-        Scanner scanner = new Scanner(System.in);
-        roomChoice = scanner.nextInt();
 
-        switch(roomChoice) {
-            case 1:
-                createRoom();
-                break;
-            case 2:
-                getRooms();
-                break;
-            case 3:
-                updateRoom();
-                break;
-            case 4:
-                deleteRoom();
-                break;
-        }
+        do {
+            System.out.println("                                                ");
+            System.out.println("                                                ");
+            System.out.println("   *---------- ROOMS MANAGEMENTS ----------*    ");
+            System.out.println("   |                                       |    ");
+            System.out.println("   |  [1] - CREATE ROOM                    |    ");
+            System.out.println("   |  [2] - READ ROOMS                     |    ");
+            System.out.println("   |  [3] - UPDATE ROOM                    |    ");
+            System.out.println("   |  [4] - DELETE ROOM                    |    ");
+            System.out.println("   |  [0] - GO BACK TO THE MAIN MENU       |    ");
+            System.out.println("   |                                       |    ");
+            System.out.println("   *---------------------------------------*    ");
+            System.out.println("                                                ");
+            System.out.println("                                                ");
+            System.out.print("Please enter your choice : ");
+            Scanner scanner = new Scanner(System.in);
+            roomChoice = scanner.nextInt();
+
+            switch (roomChoice) {
+                case 1:
+                    createRoom();
+                    break;
+                case 2:
+                    getRooms();
+                    break;
+                case 3:
+                    updateRoom();
+                    break;
+                case 4:
+                    deleteRoom();
+                    break;
+            }
+        }while (roomChoice != 0);
     }
 
     public static void createRoom(){
 
+        ClearConsole();
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter Room Id :        ");
+        System.out.println("                        ");
+        System.out.println("Enter room information :");
+        System.out.println("------------------------");
+        System.out.println("                        ");
+        System.out.println("                        ");
+        System.out.print("Enter Room Id : ");
         int roomId = scanner.nextInt();
-        System.out.print("Enter Room Name :     ");
+        System.out.print("Enter Room Name : ");
         String roomName = scanner.next();
         System.out.print("Enter Department Id : ");
         int departmentId = scanner.nextInt();
@@ -340,39 +409,64 @@ public class Main {
         return null;
     }
 
-    public static void getRooms(){ for (Room room1 : rooms){ System.out.println(room1.toString()); } }
-    public static void updateRoom(){ System.out.println("Update Department Coming Soon !!!       "); }
-    public static void deleteRoom(){ System.out.println("delete Department Coming Soon !!!       "); }
+    public static void getRooms(){
+        ClearConsole();
+        System.out.println("            ");
+        System.out.println("            ");
+        System.out.println("Room List : ");
+        System.out.println("------------");
+        System.out.println("            ");
+        for (Room room1 : rooms){ System.out.println(room1.toString()); }
+    }
+    public static void updateRoom(){
+        ClearConsole();
+        System.out.println("Update Department Coming Soon !!!       ");
+    }
+    public static void deleteRoom(){
+        ClearConsole();
+        System.out.println("delete Department Coming Soon !!!       ");
+    }
 
     // Subjects Management
 
     public static void subjectsManagement(){
 
+        ClearConsole();
         int subjectChoice;
-        System.out.println("---------- SUBJECTS MANAGEMENTS ------");
-        System.out.println("[1] - CREATE SUBJECT                  ");
-        System.out.println("[2] - READ SUBJECTS                   ");
-        System.out.println("[3] - UPDATE SUBJECT                  ");
-        System.out.println("[4] - DELETE SUBJECT                  ");
-        System.out.println("                                      ");
-        System.out.print("Please enter your choice : ");
-        Scanner scanner = new Scanner(System.in);
-        subjectChoice = scanner.nextInt();
 
-        switch(subjectChoice) {
-            case 1:
-                createSubject();
-                break;
-            case 2:
-                getSubjects();
-                break;
-            case 3:
-                updateSubject();
-                break;
-            case 4:
-                deleteSubject();
-                break;
-        }
+        do {
+            System.out.println("                                                 ");
+            System.out.println("                                                 ");
+            System.out.println("    *---------- SUBJECTS MANAGEMENTS -------*    ");
+            System.out.println("    |                                       |    ");
+            System.out.println("    |  [1] - CREATE SUBJECT                 |    ");
+            System.out.println("    |  [2] - READ SUBJECT                   |    ");
+            System.out.println("    |  [3] - UPDATE SUBJECT                 |    ");
+            System.out.println("    |  [4] - DELETE SUBJECT                 |    ");
+            System.out.println("    |  [0] - GO BACK TO THE MAIN MENU       |    ");
+            System.out.println("    |                                       |    ");
+            System.out.println("    *---------------------------------------*    ");
+            System.out.println("                                                 ");
+            System.out.println("                                                 ");
+            System.out.print("Please enter your choice : ");
+            Scanner scanner = new Scanner(System.in);
+            subjectChoice = scanner.nextInt();
+
+            switch (subjectChoice) {
+                case 1:
+                    createSubject();
+                    break;
+                case 2:
+                    getSubjects();
+                    break;
+                case 3:
+                    updateSubject();
+                    break;
+                case 4:
+                    deleteSubject();
+                    break;
+            }
+        }while (subjectChoice != 0);
     }
 
     public static void createSubject(){
@@ -411,33 +505,47 @@ public class Main {
 
     // Teachers Management
 
-    public static void teachersManagement(){
+    public static void teachersManagement() {
 
+        ClearConsole();
         int teacherChoice;
-        System.out.println("---------- TEACHERS MANAGEMENTS ------");
-        System.out.println("[1] - CREATE TEACHER                  ");
-        System.out.println("[2] - READ TEACHERS                   ");
-        System.out.println("[3] - UPDATE TEACHER                  ");
-        System.out.println("[4] - DELETE TEACHER                  ");
-        System.out.println("                                      ");
-        System.out.print("Please enter your choice : ");
-        Scanner scanner = new Scanner(System.in);
-        teacherChoice = scanner.nextInt();
 
-        switch(teacherChoice) {
-            case 1:
-                createTeacher();
-                break;
-            case 2:
-                getTeachers();
-                break;
-            case 3:
-                updateTeacher();
-                break;
-            case 4:
-                deleteTeacher();
-                break;
-        }
+        do {
+
+            System.out.println("                                                ");
+            System.out.println("                                                ");
+            System.out.println("    *---------- TEACHERS MANAGEMENTS -------*   ");
+            System.out.println("    |                                       |   ");
+            System.out.println("    |  [1] - CREATE TEACHER                 |   ");
+            System.out.println("    |  [2] - READ TEACHER                   |   ");
+            System.out.println("    |  [3] - UPDATE TEACHER                 |   ");
+            System.out.println("    |  [4] - DELETE TEACHER                 |   ");
+            System.out.println("    |  [0] - GO BACK TO THE MAIN MENU       |   ");
+            System.out.println("    |                                       |   ");
+            System.out.println("    *---------------------------------------*   ");
+            System.out.println("                                                ");
+            System.out.println("                                                ");
+            System.out.print("Please enter your choice : ");
+            Scanner scanner = new Scanner(System.in);
+            teacherChoice = scanner.nextInt();
+
+            switch (teacherChoice) {
+                case 1:
+                    createTeacher();
+                    break;
+                case 2:
+                    getTeachers();
+                    break;
+                case 3:
+                    updateTeacher();
+                    break;
+                case 4:
+                    deleteTeacher();
+                    break;
+            }
+
+        }while (teacherChoice != 0);
+
     }
 
     public static void createTeacher(){
@@ -465,31 +573,44 @@ public class Main {
 
     public static void studentsManagement(){
 
+        ClearConsole();
         int studentChoice;
-        System.out.println("---------- STUDENTS MANAGEMENTS ------");
-        System.out.println("[1] - CREATE STUDENT                  ");
-        System.out.println("[2] - READ STUDENTS                   ");
-        System.out.println("[3] - UPDATE STUDENT                  ");
-        System.out.println("[4] - DELETE STUDENT                  ");
-        System.out.println("                                      ");
-        System.out.print("Please enter your choice : ");
-        Scanner scanner = new Scanner(System.in);
-        studentChoice = scanner.nextInt();
 
-        switch(studentChoice) {
-            case 1:
-                createStudent();
-                break;
-            case 2:
-                getStudents();
-                break;
-            case 3:
-                updateStudent();
-                break;
-            case 4:
-                deleteStudent();
-                break;
-        }
+        do {
+
+            System.out.println("                                                 ");
+            System.out.println("                                                 ");
+            System.out.println("    #---------- STUDENTS MANAGEMENTS -------#    ");
+            System.out.println("    |                                       |    ");
+            System.out.println("    |  [1] - CREATE STUDENT                 |    ");
+            System.out.println("    |  [2] - READ STUDENTS                  |    ");
+            System.out.println("    |  [3] - UPDATE STUDENT                 |    ");
+            System.out.println("    |  [4] - DELETE STUDENT                 |    ");
+            System.out.println("    |  [0] - GO BACK TO THE MAIN MENU       |    ");
+            System.out.println("    |                                       |    ");
+            System.out.println("    #---------------------------------------#    ");
+            System.out.println("                                                 ");
+            System.out.println("                                                 ");
+            System.out.print("Please enter your choice : ");
+            Scanner scanner = new Scanner(System.in);
+            studentChoice = scanner.nextInt();
+
+            switch (studentChoice) {
+                case 1:
+                    createStudent();
+                    break;
+                case 2:
+                    getStudents();
+                    break;
+                case 3:
+                    updateStudent();
+                    break;
+                case 4:
+                    deleteStudent();
+                    break;
+            }
+
+        }while (studentChoice != 0);
     }
 
     public static void createStudent(){
