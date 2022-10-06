@@ -20,7 +20,11 @@ public class Main {
             ClearConsole();
             System.out.println("                                                 ");
             System.out.println("                                                 ");
-            System.out.println("    #=========*  | WIN ACADEMY |  *=========#    ");
+            System.out.println("    #=======================================#    ");
+            System.out.println("    |            | WIN ACADEMY |            |    ");
+            System.out.println("    #=======================================#    ");
+            System.out.println("                                                 ");
+            System.out.println("    #=======================================#    ");
             System.out.println("    |                                       |    ");
             System.out.println("    |  [1] - COLLEGES MANAGEMENT            |    ");
             System.out.println("    |  [2] - DEPARTMENTS MANAGEMENT         |    ");
