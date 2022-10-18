@@ -13,12 +13,11 @@ public class Student extends User {
         this.subject = subject;
     }
 
-    public Subject getSubject() {
-        return subject;
-    }
-
     public void setSubject(Subject subject) {
         this.subject = subject;
+    }
+    public Subject getSubject() {
+        return subject;
     }
 
     public String toString() {

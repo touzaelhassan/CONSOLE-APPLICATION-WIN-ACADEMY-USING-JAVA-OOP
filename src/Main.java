@@ -101,8 +101,6 @@ public class Main {
         }
     }
 
-    // Colleges Management
-
     public static void collegesManagement(){
 
         int collegeChoice;
@@ -213,11 +211,10 @@ public class Main {
         System.out.println("Colleges List :");
         System.out.println("---------------");
         System.out.println("               ");
-        for (College college1 : colleges){ System.out.println(college1.toString());}
+
+        colleges.forEach(System.out::println);
 
     }
-
-    // Departments Management
 
     public static void departmentsManagement(){
 
@@ -335,8 +332,6 @@ public class Main {
         for (Department department1 : departments){ System.out.println(department1.toString());}
     }
 
-    // Rooms Management
-
     public static void roomsManagement(){
 
         ClearConsole();
@@ -422,16 +417,16 @@ public class Main {
         System.out.println("            ");
         for (Room room1 : rooms){ System.out.println(room1.toString()); }
     }
+
     public static void updateRoom(){
         ClearConsole();
         System.out.println("Update Department Coming Soon !!!       ");
     }
+
     public static void deleteRoom(){
         ClearConsole();
         System.out.println("delete Department Coming Soon !!!       ");
     }
-
-    // Subjects Management
 
     public static void subjectsManagement(){
 
@@ -507,8 +502,6 @@ public class Main {
     public static void updateSubject(){ System.out.println("Update Department Coming Soon !!!                   "); }
     public static void deleteSubject(){ System.out.println("delete Department Coming Soon !!!                   "); }
 
-    // Teachers Management
-
     public static void teachersManagement() {
 
         ClearConsole();
@@ -572,9 +565,7 @@ public class Main {
     public static void getTeachers(){ for (Teacher teacher1 : teachers){ System.out.println(teacher1.toString()); } }
     public static void updateTeacher(){ System.out.println("Update Department Coming Soon !!!                   "); }
     public static void deleteTeacher(){ System.out.println("delete Department Coming Soon !!!                   "); }
-
-    // Students Management
-
+    
     public static void studentsManagement(){
 
         ClearConsole();
