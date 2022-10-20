@@ -116,6 +116,9 @@ public class Main {
             System.out.println("   |  [2] - READ COLLEGES                  |   ");
             System.out.println("   |  [3] - UPDATE COLLEGE                 |   ");
             System.out.println("   |  [4] - DELETE COLLEGE                 |   ");
+            System.out.println("   |  [4] - DELETE COLLEGE                 |   ");
+            System.out.println("   |  [5] - COLLEGE LIST > 2               |   ");
+            System.out.println("   |  [6] - ADD 'The' To college name      |   ");
             System.out.println("   |  [0] - GO BACK TO THE MAIN MENU       |   ");
             System.out.println("   |                                       |   ");
             System.out.println("   *---------------------------------------*   ");
@@ -137,6 +140,12 @@ public class Main {
                     break;
                 case 4:
                     deleteCollege();
+                    break;
+                case 5:
+                    collegesFilter();
+                    break;
+                case 6:
+                    addPrefixToCollegeName();
                     break;
             }
         }while(collegeChoice != 0);
@@ -160,6 +169,16 @@ public class Main {
         college.setCollege_name(collegeName);
         colleges.add(college);
 
+    }
+
+    public static void collegesFilter(){
+        System.out.println("Colleges Where Id greater than 2 : ");
+        colleges.stream().filter(college -> college.getCollege_id() > 2).forEach(System.out::println);
+    }
+
+    public static void addPrefixToCollegeName(){
+        System.out.println("Adding 'The' Prefix to college name :");
+        colleges.stream().map(college -> "The" +" "+college.getCollege_name()).forEach(System.out::println);
     }
 
     public static College getCollegeById(int collegeId){
@@ -498,6 +517,8 @@ public class Main {
         return null;
     }
 
+
+
     public static void getSubjects(){ for (Subject subject1 : subjects){ System.out.println(subject1.toString()); } }
     public static void updateSubject(){ System.out.println("Update Department Coming Soon !!!                   "); }
     public static void deleteSubject(){ System.out.println("delete Department Coming Soon !!!                   "); }
@@ -565,7 +586,7 @@ public class Main {
     public static void getTeachers(){ for (Teacher teacher1 : teachers){ System.out.println(teacher1.toString()); } }
     public static void updateTeacher(){ System.out.println("Update Department Coming Soon !!!                   "); }
     public static void deleteTeacher(){ System.out.println("delete Department Coming Soon !!!                   "); }
-    
+
     public static void studentsManagement(){
 
         ClearConsole();
@@ -613,8 +634,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter Student Id :    ");
         int userId = scanner.nextInt();
+
+
         System.out.print("Enter Student Name :  ");
         String userName = scanner.next();
+
         System.out.print("Enter Student Email : ");
         String userEmail = scanner.next();
         System.out.print("Enter Subject Id :    ");
@@ -625,7 +649,9 @@ public class Main {
 
     }
 
-    public static void getStudents(){ for (Student student1 : students){ System.out.println(student1.toString()); } }
+    public static void getStudents(){
+        for (Student student1 : students){ System.out.println(student1.toString());
+        } }
     public static void updateStudent(){ System.out.println("Update Department Coming Soon !!!                   "); }
     public static void deleteStudent(){ System.out.println("delete Department Coming Soon !!!                   "); }
 

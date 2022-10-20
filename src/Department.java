@@ -24,12 +24,8 @@ public class Department {
     public int getDepartment_id() {
         return department_id;
     }
-    public String getDepartment_name() {
-        return department_name;
-    }
-    public College getCollege() {
-        return college;
-    }
+    public String getDepartment_name() { return department_name; }
+    public College getCollege() { return college; }
 
 
     @Override
